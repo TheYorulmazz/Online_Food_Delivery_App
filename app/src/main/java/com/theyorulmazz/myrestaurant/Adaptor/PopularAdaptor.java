@@ -1,5 +1,7 @@
 package com.theyorulmazz.myrestaurant.Adaptor;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.theyorulmazz.myrestaurant.Activity.ShowDetailActivity;
 import com.theyorulmazz.myrestaurant.Domain.FoodDomain;
 import com.theyorulmazz.myrestaurant.R;
 
@@ -18,8 +21,8 @@ import java.util.ArrayList;
 public class PopularAdaptor extends RecyclerView.Adapter<PopularAdaptor.ViewHolder> {
     ArrayList<FoodDomain> popularFood;
 
-    public PopularAdaptor(ArrayList<FoodDomain> categoryDomains){
-        this.popularFood = categoryDomains;
+    public PopularAdaptor(ArrayList<FoodDomain> popularFood){
+        this.popularFood = popularFood;
     }
 
     @Override
@@ -29,7 +32,7 @@ public class PopularAdaptor extends RecyclerView.Adapter<PopularAdaptor.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position){
+    public void onBindViewHolder(@NonNull PopularAdaptor.ViewHolder holder, @SuppressLint("RecyclerView") int position){
         holder.title.setText(popularFood.get(position).getTitle());
         holder.fee.setText(String.valueOf(popularFood.get(position).getFee()));
 
@@ -38,6 +41,15 @@ public class PopularAdaptor extends RecyclerView.Adapter<PopularAdaptor.ViewHold
         Glide.with(holder.itemView.getContext())
                 .load(drawableResorceId)
                 .into(holder.pic);
+
+        holder.addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent=new Intent(holder.itemView.getContext(), ShowDetailActivity.class);
+                intent.putExtra("object",popularFood.get(position));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
 

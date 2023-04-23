@@ -51,9 +51,9 @@ private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
         recyclerViewPopularList.setLayoutManager(linearLayoutManager);
 
         ArrayList<FoodDomain> foodList=new ArrayList<>();
-        foodList.add(new FoodDomain("Pepperoni Pizza","pop_1","slices pepperoni,mozzarella cheese, fresh oregano, ground black pepper,pizza sauce",9.76));
-        foodList.add(new FoodDomain("Cheese Burger","pop_2","beef, Gouda Cheese, Special Sauce, Lettuce, tomato",8.79));
-        foodList.add(new FoodDomain("Vegetable Pizza","pop_3","olive oil, Vegetable oil, pitted kalamata, cherry tomatoes, fresh oregano, basil",8.5));
+        foodList.add(new FoodDomain("Pepperoni Pizza","pop_1","sucuk dilimleri, mozzarella peyniri, taze kekik, öğütülmüş karabiber, Pizza Sosu",83.00));
+        foodList.add(new FoodDomain("Cheese Burger","pop_2","biftek, Gouda peyniri, özel sos, marul, domates",117.00));
+        foodList.add(new FoodDomain("Vegetable Pizza","pop_3","zeytinyağı, Sebze yağı, çekirdeksiz kalamata, çeri domatesler, taze kekik, fesleğen",154.90));
 
         adapter2=new PopularAdaptor(foodList);
         recyclerViewPopularList.setAdapter(adapter2);
