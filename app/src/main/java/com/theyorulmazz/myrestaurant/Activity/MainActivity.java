@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.theyorulmazz.myrestaurant.Adaptor.CategoryAdaptor;
 import com.theyorulmazz.myrestaurant.Adaptor.PopularAdaptor;
 import com.theyorulmazz.myrestaurant.Domain.CategoryDomain;
@@ -28,6 +32,25 @@ private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
         
         recyclerViewCategory();
         recyclerViewPopular();
+        bottomNavigation();
+    }
+
+    private void bottomNavigation(){
+        FloatingActionButton floatingActionButton=findViewById(R.id.cartBtn);
+        LinearLayout homeBtn=findViewById(R.id.homeBtn);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this,CartListActivity.class));
+            }
+        });
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this,MainActivity.class));
+            }
+        });
     }
 
     private void recyclerViewCategory(){

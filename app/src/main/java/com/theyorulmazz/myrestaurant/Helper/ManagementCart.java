@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.theyorulmazz.myrestaurant.Domain.FoodDomain;
+import com.theyorulmazz.myrestaurant.Interface.ChangeNumberItemsListener;
 
 import java.util.ArrayList;
 
@@ -32,11 +33,35 @@ public class ManagementCart {
                 }else {
                     listFood.add(item);
                 }
-                tinyDB.putListObject("CardList",listFood);
+                tinyDB.putListObject("CartList",listFood);
                 Toast.makeText(context, "Sepetinize Eklendi", Toast.LENGTH_SHORT).show();
     }
 
     public ArrayList<FoodDomain> getListCart(){
+
         return tinyDB.getListObject("CartList");
+    }
+    public void plusNumberFood(ArrayList<FoodDomain>listFood, int position, ChangeNumberItemsListener changeNumberItemsListener){
+        listFood.get(position).setNumberInCart(listFood.get(position).getNumberInCart()+1);
+        tinyDB.putListObject("CartList",listFood);
+        changeNumberItemsListener.changed();
+    }
+    public void minusNumberFood(ArrayList<FoodDomain>listFood, int position, ChangeNumberItemsListener changeNumberItemsListener){
+        if (listFood.get(position).getNumberInCart()==1){
+            listFood.remove(position);
+        }else {
+            listFood.get(position).setNumberInCart(listFood.get(position).getNumberInCart());
+        }
+        tinyDB.putListObject("CartList",listFood);
+        changeNumberItemsListener.changed();
+    }
+
+    public Double getTotalFee(){
+        ArrayList<FoodDomain> listfood=getListCart();
+        double fee=0;
+        for (int i = 0; i < listfood.size(); i++) {
+            fee=fee+(listfood.get(i).getFee()*listfood.get(i).getNumberInCart());
+        }
+        return fee;
     }
 }

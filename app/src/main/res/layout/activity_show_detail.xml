@@ -9,7 +9,9 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,6 +29,12 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:id="@+id/picfood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/pizza" />
+
             <TextView
                 android:id="@+id/priceTxt"
                 android:layout_width="match_parent"
@@ -36,12 +44,6 @@
                 android:textColor="#ff5e00"
                 android:textSize="22sp"
                 android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/picfood"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/pizza" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -101,18 +103,54 @@
 
     <TextView
         android:id="@+id/addToCartBtn"
-        android:layout_width="0dp"
+        android:layout_width="180dp"
         android:layout_height="50dp"
-        android:text="Sepete Ekle"
-        android:textStyle="bold"
-        android:elevation="3dp"
         android:layout_margin="16dp"
+        android:layout_marginEnd="4dp"
         android:background="@drawable/orange_button"
+        android:elevation="3dp"
         android:gravity="center"
-        android:textSize="23sp"
+        android:text="Sepete Ekle"
         android:textColor="#ffffff"
+        android:textSize="23sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/addToCartBtn"
+        app:layout_constraintEnd_toStartOf="@+id/addToCartBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/addToCartBtn"
+        app:srcCompat="@drawable/orange_button" />
+
+    <TextView
+        android:id="@+id/totalPriceTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="₺"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/totalPriceTxt"
+        app:layout_constraintStart_toEndOf="@+id/totalPriceTxt"
+        app:layout_constraintTop_toTopOf="@+id/totalPriceTxt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

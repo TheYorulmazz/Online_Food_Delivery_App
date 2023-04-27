@@ -14,7 +14,7 @@ import com.theyorulmazz.myrestaurant.R;
 
 public class ShowDetailActivity extends AppCompatActivity {
 private TextView addToCartBtn;
-private TextView titleTxt,feeTxt,descriptionTxt,numberOrderTxt;
+private TextView titleTxt,feeTxt,descriptionTxt,numberOrderTxt,totalPriceTxt;
 private ImageView plusBtn,MinusBtn,picFood;
 private FoodDomain object;
 int numberOrder=1;
@@ -42,12 +42,14 @@ private ManagementCart managementCart;
         feeTxt.setText(object.getFee() + "₺" );
         descriptionTxt.setText(object.getDescription());
         numberOrderTxt.setText(String.valueOf(numberOrder));
+        totalPriceTxt.setText(object.getFee() + "₺");
 
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 numberOrder=numberOrder+1;
                 numberOrderTxt.setText(String.valueOf(numberOrder));
+                totalPriceTxt.setText(String.valueOf(numberOrder * object.getFee()));
             }
         });
 
@@ -58,6 +60,7 @@ private ManagementCart managementCart;
                     numberOrder=numberOrder-1;
                 }
                 numberOrderTxt.setText(String.valueOf(numberOrder));
+                totalPriceTxt.setText(String.valueOf(numberOrder * object.getFee()));
             }
         });
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
@@ -78,5 +81,6 @@ private ManagementCart managementCart;
         plusBtn=findViewById(R.id.plusBtn);
         MinusBtn=findViewById(R.id.minusBtn);
         picFood=findViewById(R.id.picfood);
+        totalPriceTxt=findViewById(R.id.totalPriceTxt);
     }
 }

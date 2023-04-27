@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cartView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.CartListActivity">
@@ -180,7 +181,7 @@
         android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/scrollView3"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView3"
         app:layout_constraintStart_toStartOf="@+id/scrollView3"
         app:layout_constraintTop_toTopOf="@+id/scrollView3" />
 
