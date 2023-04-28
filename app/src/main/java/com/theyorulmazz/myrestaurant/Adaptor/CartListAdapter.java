@@ -64,7 +64,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
         });
         holder.minusItem.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View view){
                 managementCart.minusNumberFood(foodDomains, position, new ChangeNumberItemsListener() {
                     @Override
                     public void changed(){

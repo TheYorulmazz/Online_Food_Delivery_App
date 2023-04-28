@@ -2,6 +2,7 @@ package com.theyorulmazz.myrestaurant.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -28,6 +29,7 @@ private ManagementCart managementCart;
         managementCart=new ManagementCart(this);
         initView();
         getBundle();
+
     }
 
     private void getBundle(){
@@ -39,17 +41,17 @@ private ManagementCart managementCart;
                 .into(picFood);
 
         titleTxt.setText(object.getTitle());
-        feeTxt.setText(object.getFee() + "₺" );
+        //feeTxt.setText(object.getFee() + "₺" );
         descriptionTxt.setText(object.getDescription());
         numberOrderTxt.setText(String.valueOf(numberOrder));
-        totalPriceTxt.setText(object.getFee() + "₺");
+        totalPriceTxt.setText(object.getFee()+"₺");
 
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 numberOrder=numberOrder+1;
                 numberOrderTxt.setText(String.valueOf(numberOrder));
-                totalPriceTxt.setText(String.valueOf(numberOrder * object.getFee()));
+                totalPriceTxt.setText(String.valueOf(numberOrder * object.getFee()+"₺"));
             }
         });
 
@@ -60,7 +62,7 @@ private ManagementCart managementCart;
                     numberOrder=numberOrder-1;
                 }
                 numberOrderTxt.setText(String.valueOf(numberOrder));
-                totalPriceTxt.setText(String.valueOf(numberOrder * object.getFee()));
+                totalPriceTxt.setText(String.valueOf(numberOrder * object.getFee()+"₺"));
             }
         });
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +70,7 @@ private ManagementCart managementCart;
             public void onClick(View v){
                 object.setNumberInCart(numberOrder);
                 managementCart.insertFood(object);
+                startActivity(new Intent(ShowDetailActivity.this,MainActivity.class));
             }
         });
     }
@@ -75,7 +78,7 @@ private ManagementCart managementCart;
     private void initView(){
         addToCartBtn=findViewById(R.id.addToCartBtn);
         titleTxt=findViewById(R.id.titleTxt);
-        feeTxt=findViewById(R.id.priceTxt);
+        //feeTxt=findViewById(R.id.priceTxt);
         descriptionTxt=findViewById(R.id.descriptionTxt);
         numberOrderTxt=findViewById(R.id.numberOrderTxt);
         plusBtn=findViewById(R.id.plusBtn);

@@ -77,6 +77,8 @@ private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
         foodList.add(new FoodDomain("Pepperoni Pizza","pop_1","sucuk dilimleri, mozzarella peyniri, taze kekik, öğütülmüş karabiber, Pizza Sosu",83.00));
         foodList.add(new FoodDomain("Cheese Burger","pop_2","biftek, Gouda peyniri, özel sos, marul, domates",117.00));
         foodList.add(new FoodDomain("Vegetable Pizza","pop_3","zeytinyağı, Sebze yağı, çekirdeksiz kalamata, çeri domatesler, taze kekik, fesleğen",154.90));
+        foodList.add(new FoodDomain("Sosisli Sandviç","hotdog1","marul, patates kızartması, sosis, doğranmış turşu, ketçap, mayonez, hardal",35.00));
+        foodList.add(new FoodDomain("Donut","donut1","çikolata, reçel, krema",50.00));
 
         adapter2=new PopularAdaptor(foodList);
         recyclerViewPopularList.setAdapter(adapter2);

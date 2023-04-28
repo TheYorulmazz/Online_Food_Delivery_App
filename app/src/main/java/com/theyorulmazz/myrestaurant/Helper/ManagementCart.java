@@ -50,7 +50,7 @@ public class ManagementCart {
         if (listFood.get(position).getNumberInCart()==1){
             listFood.remove(position);
         }else {
-            listFood.get(position).setNumberInCart(listFood.get(position).getNumberInCart());
+            listFood.get(position).setNumberInCart(listFood.get(position).getNumberInCart()-1);
         }
         tinyDB.putListObject("CartList",listFood);
         changeNumberItemsListener.changed();
