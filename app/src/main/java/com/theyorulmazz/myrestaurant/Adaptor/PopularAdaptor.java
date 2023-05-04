@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -42,7 +43,25 @@ public class PopularAdaptor extends RecyclerView.Adapter<PopularAdaptor.ViewHold
                 .load(drawableResorceId)
                 .into(holder.pic);
 
-        holder.addBtn.setOnClickListener(new View.OnClickListener() {
+        /*holder.addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent=new Intent(holder.itemView.getContext(), ShowDetailActivity.class);
+                intent.putExtra("object",popularFood.get(position));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
+
+        holder.pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent=new Intent(holder.itemView.getContext(), ShowDetailActivity.class);
+                intent.putExtra("object",popularFood.get(position));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });*/
+
+        holder.Clay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
                 Intent intent=new Intent(holder.itemView.getContext(), ShowDetailActivity.class);
@@ -62,12 +81,14 @@ public class PopularAdaptor extends RecyclerView.Adapter<PopularAdaptor.ViewHold
         TextView title,fee;
         ImageView pic;
         TextView addBtn;
+        ConstraintLayout Clay;
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             title=itemView.findViewById(R.id.title);
             fee=itemView.findViewById(R.id.fee);
             pic=itemView.findViewById(R.id.pic);
             addBtn=itemView.findViewById(R.id.addBtn);
+            Clay=itemView.findViewById(R.id.ConsLay);
         }
     }
 }

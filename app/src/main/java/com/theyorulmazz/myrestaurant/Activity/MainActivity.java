@@ -79,6 +79,7 @@ private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
         foodList.add(new FoodDomain("Vegetable Pizza","pop_3","zeytinyağı, Sebze yağı, çekirdeksiz kalamata, çeri domatesler, taze kekik, fesleğen",154.90));
         foodList.add(new FoodDomain("Sosisli Sandviç","hotdog1","marul, patates kızartması, sosis, doğranmış turşu, ketçap, mayonez, hardal",35.00));
         foodList.add(new FoodDomain("Donut","donut1","çikolata, reçel, krema",50.00));
+        foodList.add(new FoodDomain("Kola","cola","gazlı içecek",18.00));
 
         adapter2=new PopularAdaptor(foodList);
         recyclerViewPopularList.setAdapter(adapter2);
